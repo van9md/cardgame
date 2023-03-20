@@ -1,6 +1,7 @@
 extends Node2D
 var selected = false
 var element_top= ""
+signal  reaction(a,b)
 @export var element: String = "element"
 @export var color:Color
 
@@ -17,7 +18,6 @@ func _input(event):
 		if (event.button_index==MOUSE_BUTTON_LEFT and not event.pressed):
 			selected=false
 
-#
 func _on_control_gui_input(event):
 	if Input.is_action_just_pressed("click"):
 		selected = true
@@ -27,3 +27,6 @@ func _on_area_2d_area_entered(area):
 	if selected == false:
 		element_top = area.get_node("Label").text
 		print(element_top," entered ", element)
+		reaction.emit(element,element_top)
+		#delete element_top on enter
+		area.get_parent().get_parent().queue_free()

@@ -39,7 +39,7 @@ func _on_control_gui_input(event):
 
 func _on_area_2d_area_entered(area):
 	intersect = true
-	if selected == false and area.get_parent().get_parent().released == true:
+	if selected == false: #and area.get_parent().get_parent().released == true:
 		#area_top= area
 		element_top = area.get_node("Label").text
 		#print(element, released)

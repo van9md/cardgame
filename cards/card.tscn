@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkyskuq4cwhal"]
 
 [ext_resource type="Script" path="res://cards/card.gd" id="1_cafm8"]
-[ext_resource type="Texture2D" uid="uid://bo8iphij21lfp" path="res://icon.svg" id="1_np5og"]
+[ext_resource type="Texture2D" uid="uid://dbamcm8q2d3ey" path="res://levels/sprite.png" id="2_coboi"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kqnc6"]
 
@@ -14,7 +14,7 @@ color = Color(0.92549, 0.470588, 0.556863, 1)
 
 [node name="Icon" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_kqnc6")
-texture = ExtResource("1_np5og")
+texture = ExtResource("2_coboi")
 
 [node name="Area2D" type="Area2D" parent="Icon"]
 position = Vector2(-64, -64)
@@ -25,8 +25,9 @@ offset_top = 52.0
 offset_right = 96.0
 offset_bottom = 73.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-bbcode_enabled = true
 text = "WATER"
+scroll_active = false
+shortcut_keys_enabled = false
 
 [node name="Control" type="Control" parent="Icon/Area2D"]
 layout_mode = 3

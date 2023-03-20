@@ -3,7 +3,7 @@ var selected = false
 var released = false
 var element_top= ""
 var intersect = false
-#area_top = "Area"
+var area_top = "Area"
 signal  reaction(a,b)
 @export var element: String = "element"
 @export var color:Color
@@ -13,43 +13,39 @@ signal  reaction(a,b)
 func _ready():
 	get_node("Icon/Area2D/Label").text = element
 	get_node("Icon").set_modulate(color)
+	
 func _physics_process(delta):
+	#move card with delay
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(),25*delta)
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if (event.button_index==MOUSE_BUTTON_LEFT and not event.pressed):
-			#print("released")
-			selected=false
-	print(element, released)
-	
 func _process(delta):
-	pass
+	check_drop()
+		
 func _on_control_gui_input(event):
 	if Input.is_action_just_pressed("click"):
 		selected = true
 		released = false
-	if event is InputEventMouseButton:
-		if (event.button_index==MOUSE_BUTTON_LEFT and not event.pressed):
-			print(element, "released")
-			released = true
+		print(element, " clicked!")
+	if Input.is_action_just_released("click"):
+		released = true
+		selected = false
+		print(element, " released")
 		
-
 
 func _on_area_2d_area_entered(area):
-	intersect = true
-	if selected == false: #and area.get_parent().get_parent().released == true:
-		#area_top= area
+	if selected == false:
 		element_top = area.get_node("Label").text
-		#print(element, released)
-		#print(element_top," entered ", element, selected, released)
-		reaction.emit(element,element_top,self,area.get_parent().get_parent())
-		#delete element_top on enter
-		area.get_parent().get_parent().queue_free()
+		print(element_top, " ENTERED ", element)
+		area_top= area
+		intersect = true
 		
-
-
 func _on_area_2d_area_exited(area):
 	intersect = false
-	pass # Replace with function body.
+	
+func check_drop():
+	if selected == false and intersect == true and area_top.get_parent().get_parent().released == true:
+		#custom reaction
+		reaction.emit(element,element_top,self,area_top.get_parent().get_parent())
+		#delete element_top on enter
+		area_top.get_parent().get_parent().queue_free()

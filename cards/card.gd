@@ -27,6 +27,6 @@ func _on_area_2d_area_entered(area):
 	if selected == false:
 		element_top = area.get_node("Label").text
 		print(element_top," entered ", element)
-		reaction.emit(element,element_top)
+		reaction.emit(element,element_top,self,area.get_parent().get_parent())
 		#delete element_top on enter
 		area.get_parent().get_parent().queue_free()

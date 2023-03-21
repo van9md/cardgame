@@ -9,32 +9,40 @@ card_scene = ExtResource("1_jr53a")
 
 [node name="water" parent="." instance=ExtResource("1_jr53a")]
 position = Vector2(801, 208)
-element = "water"
+element = "Water"
 color = Color(0, 0.686275, 0.858824, 1)
-reactions = {
-"fire": "steam"
-}
 
 [node name="water2" parent="." instance=ExtResource("1_jr53a")]
 position = Vector2(385, 100)
-element = "water"
+element = "Water"
 color = Color(0, 0.686275, 0.858824, 1)
-reactions = {
-"fire": "steam"
-}
 
 [node name="fire" parent="." instance=ExtResource("1_jr53a")]
 position = Vector2(151, 288)
-element = "fire"
+element = "Fire"
 color = Color(0.768627, 0.133333, 0.25098, 1)
-reactions = {
-"water": "steam"
-}
 
 [node name="fire2" parent="." instance=ExtResource("1_jr53a")]
 position = Vector2(633, 420)
-element = "fire"
+element = "Fire"
 color = Color(0.768627, 0.133333, 0.25098, 1)
-reactions = {
-"water": "steam"
-}
+
+[node name="air" parent="." instance=ExtResource("1_jr53a")]
+position = Vector2(180, 501)
+element = "Air"
+color = Color(0.870588, 0.85098, 0.843137, 1)
+
+[node name="air2" parent="." instance=ExtResource("1_jr53a")]
+position = Vector2(364, 545)
+element = "Air"
+color = Color(0.639216, 0.635294, 0.615686, 1)
+
+[node name="earth" parent="." instance=ExtResource("1_jr53a")]
+position = Vector2(443, 274)
+element = "Earth"
+color = Color(0.537255, 0.207843, 0, 1)
+
+[node name="earth2" parent="." instance=ExtResource("1_jr53a")]
+position = Vector2(500, 440)
+element = "Earth"
+color = Color(0.54902, 0.172549, 0.0627451, 1)

@@ -1,52 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://cftt7ly1r6s3u"]
+[gd_scene load_steps=8 format=3 uid="uid://cftt7ly1r6s3u"]
 
 [ext_resource type="PackedScene" uid="uid://bkyskuq4cwhal" path="res://cards/card.tscn" id="1_jr53a"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_sy437"]
-[ext_resource type="PackedScene" uid="uid://drav1mus8fcsi" path="res://button_spawn.tscn" id="3_qqx5t"]
+[ext_resource type="PackedScene" uid="uid://bq7jrfyoftajg" path="res://other/spawner_button.tscn" id="3_ww0iy"]
+[ext_resource type="PackedScene" uid="uid://comg63l0yuofk" path="res://cards/water.tscn" id="4_qn7nd"]
+[ext_resource type="PackedScene" uid="uid://clm6ofsl60md5" path="res://cards/fire.tscn" id="5_g7tw1"]
+[ext_resource type="PackedScene" uid="uid://y586vgtc0k8" path="res://cards/air.tscn" id="6_hfn5b"]
+[ext_resource type="PackedScene" uid="uid://ue2ukvwwxgs0" path="res://cards/earth.tscn" id="6_jpiac"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_sy437")
 card_scene = ExtResource("1_jr53a")
 
-[node name="water" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(801, 208)
-element = "Water"
-color = Color(0, 0.686275, 0.858824, 1)
+[node name="create_water" parent="." instance=ExtResource("3_ww0iy")]
+text = "Create water"
+spawn_scene = ExtResource("4_qn7nd")
 
-[node name="water2" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(385, 100)
-element = "Water"
-color = Color(0, 0.686275, 0.858824, 1)
+[node name="create_fire" parent="." instance=ExtResource("3_ww0iy")]
+offset_left = 192.0
+offset_right = 319.0
+text = "Create fire"
+spawn_scene = ExtResource("5_g7tw1")
 
-[node name="fire" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(151, 288)
-element = "Fire"
-color = Color(0.768627, 0.133333, 0.25098, 1)
+[node name="create_earth" parent="." instance=ExtResource("3_ww0iy")]
+offset_left = 384.0
+offset_right = 511.0
+text = "Create earth"
+spawn_scene = ExtResource("6_jpiac")
 
-[node name="fire2" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(633, 420)
-element = "Fire"
-color = Color(0.768627, 0.133333, 0.25098, 1)
-
-[node name="air" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(180, 501)
-element = "Air"
-color = Color(0.870588, 0.85098, 0.843137, 1)
-
-[node name="air2" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(364, 545)
-element = "Air"
-color = Color(0.639216, 0.635294, 0.615686, 1)
-
-[node name="earth" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(443, 274)
-element = "Earth"
-color = Color(0.537255, 0.207843, 0, 1)
-
-[node name="earth2" parent="." instance=ExtResource("1_jr53a")]
-position = Vector2(500, 440)
-element = "Earth"
-color = Color(0.54902, 0.172549, 0.0627451, 1)
-
-[node name="button_spawn" parent="." instance=ExtResource("3_qqx5t")]
-position = Vector2(95, 66)
+[node name="create_air" parent="." instance=ExtResource("3_ww0iy")]
+offset_left = 576.0
+offset_right = 703.0
+text = "Create air"
+spawn_scene = ExtResource("6_hfn5b")

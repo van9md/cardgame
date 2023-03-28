@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://y586vgtc0k8"]
+
+[ext_resource type="PackedScene" uid="uid://bkyskuq4cwhal" path="res://cards/card.tscn" id="1_k2vqm"]
+
+[node name="card" instance=ExtResource("1_k2vqm")]
+element = "Air"
+color = Color(0.376471, 0.682353, 0.776471, 1)

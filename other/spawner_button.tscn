@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq7jrfyoftajg"]
+
+[ext_resource type="PackedScene" uid="uid://byanfjjtym1sg" path="res://other/spawner_2d.tscn" id="1_6q0sm"]
+[ext_resource type="Script" path="res://other/spawner_button.gd" id="1_uhetm"]
+[ext_resource type="PackedScene" uid="uid://bkyskuq4cwhal" path="res://cards/card.tscn" id="2_5l2p2"]
+
+[node name="Button" type="Button"]
+offset_right = 127.0
+offset_bottom = 61.0
+script = ExtResource("1_uhetm")
+spawn_scene = ExtResource("2_5l2p2")
+
+[node name="Spawner2D" parent="." instance=ExtResource("1_6q0sm")]
+position = Vector2(63, 77)
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

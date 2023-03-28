@@ -63,7 +63,7 @@ func check_drop():
 			
 		
 func create_new_card():
-	var card = self.get_parent().card_scene.instantiate()
+	var card = Globals.card.instantiate()
 	card.element=reactions[element_top]
 	card.color = Color(1, 1, 1, 1)
 	card.global_position=get_global_mouse_position()
